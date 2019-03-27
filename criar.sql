@@ -106,3 +106,97 @@ CREATE TABLE CinemaTemFilme(
 	filmeID INT REFERENCES Filme,
 	PRIMARY KEY(cinemaID, filmeID)
 );
+
+
+CREATE TABLE Sessao(
+	sessaoID INT PRIMARY KEY,
+	horaInicio TEXT,
+	lugaresDisponiveis INT,
+	salaID INT REFERENCES Sala,
+	filmeID INT REFERENCES Filme
+);
+
+CREATE TABLE Bilhete(
+	bilheteID INT PRIMARY KEY,
+	dataCompra DATE,
+	sessaoID INT REFERENCES Sessao,
+	lugarID INT REFERENCES Lugar,
+	pedidoID INT REFERENCES Pedido
+);
+
+CREATE TABLE Pedido(
+	pedidoID INT PRIMARY KEY,
+	precoOriginal REAL,
+	precoEfetivo REAL,
+	dataPagamento DATE,
+	postoVendaID INT REFERENCES PostoVenda,
+	funcionarioID INT REFERENCES Funcionario,
+	clienteID INT REFERENCES Cliente
+);
+
+CREATE TABLE PostoVenda(
+	postoVendaID INT PRIMARY KEY,
+	numero INT,
+	cinemaID INT REFERENCES Cinema
+);
+
+CREATE TABLE Produto(
+	produtoID INT PRIMARY KEY,
+	nome TEXT,
+	preco REAL
+);
+
+CREATE TABLE ProdutoDisponivel(
+	produtoID INT REFERENCES Produto,
+	postoVendaID INT REFERENCES PostoVenda,
+	stock INT,
+	PRIMARY KEY(produtoID, postoVendaID)
+);
+
+CREATE TABLE ProdutoAdquirido(
+	produtoID INT REFERENCES Produto,
+	pedidoID INT REFERENCES Pedido,
+	quantidade INT,
+	PRIMARY KEY(produtoID, pedidoID)
+);
+
+CREATE TABLE Pessoa(
+	pessoaID INT PRIMARY KEY,
+	nome TEXT,
+	NIF INT,
+	telefone INT,
+	dataNascimento DATE,
+	morada TEXT,
+	codigoPostal TEXT
+);
+
+CREATE TABLE Funcionario(
+	pessoaID INT PRIMARY KEY REFERENCES Pessoa,
+	funcoes TEXT,
+	salario REAL,
+	cinemaID INT REFERENCES Cinema
+	postoVendaID INT REFERENCES PostoVenda
+);
+
+CREATE TABLE Cliente(
+	pessoaID INT PRIMARY KEY REFERENCES Pessoa,
+	desconto INT
+);
+
+CREATE TABLE Usual(
+	clienteID INT PRIMARY KEY REFERENCES Cliente
+);
+
+CREATE TABLE Membro(
+	clienteID INT PRIMARY KEY REFERENCES Cliente,
+	email TEXT,
+	cartaoID INT REFERENCES Cartao
+);
+
+CREATE TABLE Cartao(
+	cartaoID INT PRIMARY KEY,
+	numero INT,
+	tipo TEXT,
+	validade DATE,
+	membroID INT REFERENCES Membro
+);
