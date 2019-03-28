@@ -25,145 +25,146 @@ DROP TABLE IF EXISTS Cartao;
 
 CREATE TABLE Cinema(
 	cinemaID INT PRIMARY KEY,
-	nome TEXT,
+	nome TEXT UNIQUE NOT NULL,
 	telefone INT,
-	morada TEXT,
-	codigoPostal TEXT,
+	morada TEXT NOT NULL,
+	codigoPostal TEXT NOT NULL,
 	email TEXT,
 	site TEXT
 );
 
 CREATE TABLE Sala(
 	salaID INT PRIMARY KEY,
-	numero INT,
-	cinema INT REFERENCES Cinema,
-	numLugares INT,
-	sistemaSom INT REFERENCES SistemaSom,
-	ecra INT REFERENCES Ecra
+	numero INT NOT NULL,
+	cinema INT NOT NULL REFERENCES Cinema,
+	numLugares INT CHECK(numLugares>=0),
+	sistemaSom INT NOT NULL REFERENCES SistemaSom,
+	ecra INT NOT NULL REFERENCES Ecra,
+	UNIQUE(numero, cinema)
 );
 
 CREATE TABLE SistemaSom(
 	sistemaSomID INT PRIMARY KEY,
-	nome TEXT,
-	classificacao INT
+	nome TEXT NOT NULL UNIQUE,
+	classificacao INT CHECK(classificacao>=0 and classificacao<=5)
 );
 
 CREATE TABLE Ecra(
 	ecraID INT PRIMARY KEY,
-	nome TEXT,
-	polegadas REAL,
-	classificacao INT
+	nome TEXT NOT NULL UNIQUE,
+	polegadas REAL CHECK(polegadas>=0),
+	classificacao INT CHECK(classificacao>=0 and classificacao<=5)
 
 );
 
 CREATE TABLE Lugar(
 	lugarID INT PRIMARY KEY,
-	sala INT REFERENCES Sala,
-	fila INT,
-	numero INT,
-	VIP INT /* 0 ou 1 */
+	sala INT NOT NULL REFERENCES Sala,
+	fila INT NOT NULL,
+	numero INT NOT NULL,
+	VIP INT NOT NULL CHECK(VIP=0 or VIP=1),
+	UNIQUE(sala, fila, numero)
 );
 
 CREATE TABLE LugarOcupado(
-	sessaoID INT REFERENCES Sessao,
-	lugarID INT REFERENCES Lugar,
-	ocupado INT, /* 0 ou 1 */
-	PRIMARY KEY(sessaoID, lugarID)
+	sessao INT NOT NULL REFERENCES Sessao,
+	lugar INT NOT NULL REFERENCES Lugar,
+	ocupado INT NOT NULL CHECK(ocupado=0 or ocupado=1),
+	PRIMARY KEY(sessao, lugar)
 );
 
 CREATE TABLE Filme(
 	filmeID INT PRIMARY KEY,
-	nome TEXT,
+	nome TEXT UNIQUE NOT NULL,
 	diretor TEXT,
-	resumo TEXT;
-	duracao INT,
+	resumo TEXT,
+	duracao INT CHECK(duracao>0),
 	dataEstreia DATE
-
 );
 
 CREATE TABLE Categoria(
 	categoriaID INT PRIMARY KEY,
-	nome TEXT,
+	nome TEXT UNIQUE NOT NULL,
 	descricao TEXT
 );
 
 CREATE TABLE Critica(
 	criticaID INT PRIMARY KEY,
-	autor TEXT,
-	filmeID INT REFERENCES Film,
-	classificacao INT,
-	descricao TEXT
+	autor TEXT NOT NULL,
+	filme INT REFERENCES Filme,
+	classificacao INT CHECK(classificacao>=0 and classificacao<=5) NOT NULL,
+	descricao TEXT NOT NULL
 );
 
 CREATE TABLE FilmeTemCategoria(
-	filmeID INT REFERENCES Filme,
-	categoriaID INT REFERENCES Categoria,
-	PRIMARY KEY(filmeID, categoriaID)
+	filme INT REFERENCES Filme NOT NULL,
+	categoria INT REFERENCES Categoria NOT NULL,
+	PRIMARY KEY(filme, categoria)
 );
 
 CREATE TABLE CinemaTemFilme(
-	cinemaID INT REFERENCES Cinema,
-	filmeID INT REFERENCES Filme,
-	PRIMARY KEY(cinemaID, filmeID)
+	cinema INT REFERENCES Cinema NOT NULL,
+	filme INT REFERENCES Filme NOT NULL,
+	PRIMARY KEY(cinema, filme)
 );
 
 
 CREATE TABLE Sessao(
 	sessaoID INT PRIMARY KEY,
-	horaInicio TEXT,
-	lugaresDisponiveis INT,
-	salaID INT REFERENCES Sala,
-	filmeID INT REFERENCES Filme
+	horaInicio TEXT NOT NULL,
+	lugaresDisponiveis INT CHECK(lugaresDisponiveis>=0) NOT NULL,
+	sala INT REFERENCES Sala NOT NULL,
+	filme INT REFERENCES Filme NOT NULL
 );
 
 CREATE TABLE Bilhete(
 	bilheteID INT PRIMARY KEY,
-	dataCompra DATE,
-	sessaoID INT REFERENCES Sessao,
-	lugarID INT REFERENCES Lugar,
-	pedidoID INT REFERENCES Pedido
+	dataCompra DATE NOT NULL,
+	sessao INT REFERENCES Sessao NOT NULL,
+	lugar INT REFERENCES Lugar NOT NULL,
+	pedido INT REFERENCES Pedido NOT NULL
 );
 
 CREATE TABLE Pedido(
 	pedidoID INT PRIMARY KEY,
-	precoOriginal REAL,
-	precoEfetivo REAL,
-	dataPagamento DATE,
-	postoVendaID INT REFERENCES PostoVenda,
-	funcionarioID INT REFERENCES Funcionario,
-	clienteID INT REFERENCES Cliente
+	precoOriginal REAL NOT NULL,
+	precoEfetivo REAL NOT NULL, /* DERIVADO */
+	dataPagamento DATE NOT NULL,
+	postoVenda INT REFERENCES PostoVenda NOT NULL,
+	funcionario INT REFERENCES Funcionario NOT NULL,
+	cliente INT REFERENCES Cliente NOT NULL
 );
 
 CREATE TABLE PostoVenda(
 	postoVendaID INT PRIMARY KEY,
-	numero INT,
-	cinemaID INT REFERENCES Cinema
+	numero INT NOT NULL,
+	cinema INT REFERENCES Cinema NOT NULL
 );
 
 CREATE TABLE Produto(
 	produtoID INT PRIMARY KEY,
-	nome TEXT,
-	preco REAL
+	nome TEXT UNIQUE NOT NULL,
+	preco REAL CHECK(preco>=0) NOT NULL
 );
 
 CREATE TABLE ProdutoDisponivel(
-	produtoID INT REFERENCES Produto,
-	postoVendaID INT REFERENCES PostoVenda,
-	stock INT,
-	PRIMARY KEY(produtoID, postoVendaID)
+	produto INT REFERENCES Produto NOT NULL,
+	postoVenda INT REFERENCES PostoVenda NOT NULL,
+	stock INT CHECK(stock>=0) NOT NULL,
+	PRIMARY KEY(produto, postoVenda)
 );
 
 CREATE TABLE ProdutoAdquirido(
-	produtoID INT REFERENCES Produto,
-	pedidoID INT REFERENCES Pedido,
-	quantidade INT,
-	PRIMARY KEY(produtoID, pedidoID)
-);
+	produto INT REFERENCES Produto NOT NULL,
+	pedido INT REFERENCES Pedido NOT NULL,
+	quantidade INT CHECK(quantidade>=1) NOT NULL,
+	PRIMARY KEY(produto, pedido)
+);	
 
 CREATE TABLE Pessoa(
 	pessoaID INT PRIMARY KEY,
-	nome TEXT,
-	NIF INT,
+	nome TEXT NOT NULL,
+	NIF INT UNIQUE NOT NULL,
 	telefone INT,
 	dataNascimento DATE,
 	morada TEXT,
@@ -172,15 +173,15 @@ CREATE TABLE Pessoa(
 
 CREATE TABLE Funcionario(
 	pessoaID INT PRIMARY KEY REFERENCES Pessoa,
-	funcoes TEXT,
-	salario REAL,
-	cinemaID INT REFERENCES Cinema
-	postoVendaID INT REFERENCES PostoVenda
+	funcoes TEXT NOT NULL,
+	salario REAL NOT NULL,
+	cinema INT REFERENCES Cinema NOT NULL,
+	postoVenda INT REFERENCES PostoVenda NOT NULL
 );
 
 CREATE TABLE Cliente(
 	pessoaID INT PRIMARY KEY REFERENCES Pessoa,
-	desconto INT
+	desconto INT CHECK(desconto>=0 and desconto<=100) NOT NULL
 );
 
 CREATE TABLE Usual(
@@ -189,14 +190,14 @@ CREATE TABLE Usual(
 
 CREATE TABLE Membro(
 	clienteID INT PRIMARY KEY REFERENCES Cliente,
-	email TEXT,
-	cartaoID INT REFERENCES Cartao
+	email TEXT NOT NULL,
+	cartao INT REFERENCES Cartao NOT NULL
 );
 
 CREATE TABLE Cartao(
 	cartaoID INT PRIMARY KEY,
-	numero INT,
-	tipo TEXT,
-	validade DATE,
-	membroID INT REFERENCES Membro
+	numero INT UNIQUE NOT NULL,
+	tipo TEXT NOT NULL,
+	validade DATE NOT NULL,
+	membro INT REFERENCES Membro NOT NULL
 );
