@@ -122,7 +122,8 @@ CREATE TABLE Bilhete(
 	dataCompra DATE NOT NULL,
 	sessao INT REFERENCES Sessao NOT NULL,
 	lugar INT REFERENCES Lugar NOT NULL,
-	pedido INT REFERENCES Pedido NOT NULL
+	pedido INT REFERENCES Pedido NOT NULL,
+	UNIQUE(sessao, lugar)
 );
 
 CREATE TABLE Pedido(
