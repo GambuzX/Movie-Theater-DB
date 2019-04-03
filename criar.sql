@@ -97,14 +97,14 @@ CREATE TABLE Critica(
 );
 
 CREATE TABLE FilmeTemCategoria(
-	filme INT REFERENCES Filme NOT NULL,
-	categoria INT REFERENCES Categoria NOT NULL,
+	filme INT REFERENCES Filme,
+	categoria INT REFERENCES Categoria,
 	PRIMARY KEY(filme, categoria)
 );
 
 CREATE TABLE CinemaTemFilme(
-	cinema INT REFERENCES Cinema NOT NULL,
-	filme INT REFERENCES Filme NOT NULL,
+	cinema INT REFERENCES Cinema,
+	filme INT REFERENCES Filme,
 	PRIMARY KEY(cinema, filme)
 );
 
