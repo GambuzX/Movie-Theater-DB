@@ -24,33 +24,33 @@ DROP TABLE IF EXISTS Membro;
 DROP TABLE IF EXISTS Cartao;
 
 CREATE TABLE Cinema(
-	cinemaID INT PRIMARY KEY,
+	cinemaID INT PRIMARY KEY AUTOINCREMENT,
 	nome TEXT UNIQUE NOT NULL,
-	telefone INT,
+	telefone INT NOT NULL,
 	morada TEXT NOT NULL,
 	codigoPostal TEXT NOT NULL,
-	email TEXT,
+	email TEXT NOT NULL,
 	site TEXT
 );
 
 CREATE TABLE Sala(
-	salaID INT PRIMARY KEY,
+	salaID INT PRIMARY KEY AUTOINCREMENT,
 	numero INT NOT NULL,
 	cinema INT NOT NULL REFERENCES Cinema,
-	numLugares INT CHECK(numLugares>=0),
+	numLugares INT NOT NULL CHECK(numLugares>=0),
 	sistemaSom INT NOT NULL REFERENCES SistemaSom,
 	ecra INT NOT NULL REFERENCES Ecra,
 	UNIQUE(numero, cinema)
 );
 
 CREATE TABLE SistemaSom(
-	sistemaSomID INT PRIMARY KEY,
+	sistemaSomID INT PRIMARY KEY AUTOINCREMENT,
 	nome TEXT NOT NULL UNIQUE,
 	classificacao INT CHECK(classificacao>=0 and classificacao<=5)
 );
 
 CREATE TABLE Ecra(
-	ecraID INT PRIMARY KEY,
+	ecraID INT PRIMARY KEY AUTOINCREMENT,
 	nome TEXT NOT NULL UNIQUE,
 	polegadas REAL CHECK(polegadas>=0),
 	classificacao INT CHECK(classificacao>=0 and classificacao<=5)
@@ -58,23 +58,23 @@ CREATE TABLE Ecra(
 );
 
 CREATE TABLE Lugar(
-	lugarID INT PRIMARY KEY,
+	lugarID INT PRIMARY KEY AUTOINCREMENT,
 	sala INT NOT NULL REFERENCES Sala,
 	fila INT NOT NULL,
 	numero INT NOT NULL,
-	VIP INT NOT NULL CHECK(VIP=0 or VIP=1),
+	VIP BOOLEAN NOT NULL CHECK(VIP=0 or VIP=1),
 	UNIQUE(sala, fila, numero)
 );
 
 CREATE TABLE LugarOcupado(
-	sessao INT NOT NULL REFERENCES Sessao,
-	lugar INT NOT NULL REFERENCES Lugar,
-	ocupado INT NOT NULL CHECK(ocupado=0 or ocupado=1),
+	sessao INT REFERENCES Sessao,
+	lugar INT REFERENCES Lugar,
+	ocupado BOOLEAN NOT NULL CHECK(ocupado=0 or ocupado=1),
 	PRIMARY KEY(sessao, lugar)
 );
 
 CREATE TABLE Filme(
-	filmeID INT PRIMARY KEY,
+	filmeID INT PRIMARY KEY AUTOINCREMENT,
 	nome TEXT UNIQUE NOT NULL,
 	diretor TEXT,
 	resumo TEXT,
@@ -83,13 +83,13 @@ CREATE TABLE Filme(
 );
 
 CREATE TABLE Categoria(
-	categoriaID INT PRIMARY KEY,
+	categoriaID INT PRIMARY KEY AUTOINCREMENT,
 	nome TEXT UNIQUE NOT NULL,
 	descricao TEXT
 );
 
 CREATE TABLE Critica(
-	criticaID INT PRIMARY KEY,
+	criticaID INT PRIMARY KEY AUTOINCREMENT,
 	autor TEXT NOT NULL,
 	filme INT REFERENCES Filme,
 	classificacao INT CHECK(classificacao>=0 and classificacao<=5) NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE CinemaTemFilme(
 
 
 CREATE TABLE Sessao(
-	sessaoID INT PRIMARY KEY,
+	sessaoID INT PRIMARY KEY AUTOINCREMENT,
 	horaInicio TEXT NOT NULL,
 	lugaresDisponiveis INT CHECK(lugaresDisponiveis>=0) NOT NULL,
 	sala INT REFERENCES Sala NOT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE Sessao(
 );
 
 CREATE TABLE Bilhete(
-	bilheteID INT PRIMARY KEY,
+	bilheteID INT PRIMARY KEY AUTOINCREMENT,
 	dataCompra DATE NOT NULL,
 	sessao INT REFERENCES Sessao NOT NULL,
 	lugar INT REFERENCES Lugar NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE Bilhete(
 );
 
 CREATE TABLE Pedido(
-	pedidoID INT PRIMARY KEY,
+	pedidoID INT PRIMARY KEY AUTOINCREMENT,
 	precoOriginal REAL NOT NULL,
 	precoEfetivo REAL NOT NULL, /* DERIVADO */
 	dataPagamento DATE NOT NULL,
@@ -137,13 +137,12 @@ CREATE TABLE Pedido(
 );
 
 CREATE TABLE PostoVenda(
-	postoVendaID INT PRIMARY KEY,
-	numero INT NOT NULL,
+	postoVendaID INT PRIMARY KEY AUTOINCREMENT,
 	cinema INT REFERENCES Cinema NOT NULL
 );
 
 CREATE TABLE Produto(
-	produtoID INT PRIMARY KEY,
+	produtoID INT PRIMARY KEY AUTOINCREMENT,
 	nome TEXT UNIQUE NOT NULL,
 	preco REAL CHECK(preco>=0) NOT NULL
 );
@@ -163,7 +162,7 @@ CREATE TABLE ProdutoAdquirido(
 );	
 
 CREATE TABLE Pessoa(
-	pessoaID INT PRIMARY KEY,
+	pessoaID INT PRIMARY KEY AUTOINCREMENT,
 	nome TEXT NOT NULL,
 	NIF INT UNIQUE NOT NULL,
 	telefone INT,
@@ -177,7 +176,8 @@ CREATE TABLE Funcionario(
 	funcoes TEXT NOT NULL,
 	salario REAL NOT NULL,
 	cinema INT REFERENCES Cinema NOT NULL,
-	postoVenda INT REFERENCES PostoVenda NOT NULL
+	postoVenda INT REFERENCES PostoVenda NOT NULL,
+	numeroTrabalhador INT NOT NULL CHECK(numeroTrabalhador>0)
 );
 
 CREATE TABLE Cliente(
@@ -186,7 +186,7 @@ CREATE TABLE Cliente(
 );
 
 CREATE TABLE Usual(
-	clienteID INT PRIMARY KEY REFERENCES Cliente
+	clienteID INT PRIMARY KEY REFERENCES cliente
 );
 
 CREATE TABLE Membro(
@@ -196,7 +196,7 @@ CREATE TABLE Membro(
 );
 
 CREATE TABLE Cartao(
-	cartaoID INT PRIMARY KEY,
+	cartaoID INT PRIMARY KEY AUTOINCREMENT,
 	numero INT UNIQUE NOT NULL,
 	tipo TEXT NOT NULL,
 	validade DATE NOT NULL,
