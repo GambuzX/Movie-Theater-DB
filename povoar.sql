@@ -1,3 +1,5 @@
+PRAGMA foreign_keys=ON;
+
 INSERT INTO SistemaSom (nome,classificacao) values ("Basic Sound System" , 3);
 INSERT INTO SistemaSom (nome,classificacao) values ("Ultra Sound System" , 4);
 INSERT INTO SistemaSom (nome,classificacao) values ("IMAX Sound System" , 5);
