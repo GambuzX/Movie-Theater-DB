@@ -1,5 +1,3 @@
-PRAGMA foreign_keys=ON;
-
 INSERT INTO SistemaSom (nome,classificacao) values ("Basic Sound System" , 3);
 INSERT INTO SistemaSom (nome,classificacao) values ("Ultra Sound System" , 4);
 INSERT INTO SistemaSom (nome,classificacao) values ("IMAX Sound System" , 5);
@@ -1682,6 +1680,31 @@ INSERT INTO Produto (nome,preco) values ('Agua' , 1);
 INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (0,0,100);
 INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (0,1,100);
 INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (0,2,100);
+
 INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (1,0,50);
 INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (1,1,40);
 INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (1,2,70);
+
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (2,0,50);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (2,1,40);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (2,2,70);
+
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (3,0,50);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (3,1,40);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (3,2,70);
+
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Joao Aguiar' , 259301924 , 9322024419 , '1970-03-08' , 'Rua Indefenida' , '4420-732');
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Carlos Oliveira' , 2752312321 , 96342314547 , '2001-11-27' , 'Rua Indefenida' , '4420-732');
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Arminda Costa' , 2143342144 , 931356536321 , '1991-06-01' , 'Rua Indefenida' , '4420-732');
+
+INSERT INTO Funcionario (pessoaID , funcoes,salario , cinema , postoVenda , numeroTrabalhador) values (0,'Pedidos de Bar' , 800 , 0,0,1);
+
+INSERT INTO Cliente (pessoaID , desconto) values (1 , 25);
+INSERT INTO Cliente (pessoaID , desconto) values (2 , 15);
+
+/*
+INSERT INTO Cartao (numero , tipo , validade , membro) values
+
+
+INSERT INTO Membro (clienteID , email , cartao) values (1 , 'carlosOliveira@gmail.com' , 0);
+*/

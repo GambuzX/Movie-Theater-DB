@@ -186,7 +186,7 @@ CREATE TABLE Cliente(
 );
 
 CREATE TABLE Usual(
-	clienteID INT PRIMARY KEY REFERENCES cliente
+	clienteID INT PRIMARY KEY REFERENCES Cliente
 );
 
 CREATE TABLE Membro(
