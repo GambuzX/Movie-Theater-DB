@@ -37,8 +37,8 @@ CREATE TABLE Sala(
 	numero INT NOT NULL,
 	cinema INT NOT NULL REFERENCES Cinema ON DELETE CASCADE ON UPDATE CASCADE,
 	numLugares INT NOT NULL CHECK(numLugares>=0),
-	sistemaSom INT NOT NULL REFERENCES SistemaSom ON DELETE SET NULL ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
-	ecra INT NOT NULL REFERENCES Ecra ON DELETE SET NULL ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */ 
+	sistemaSom INT NOT NULL REFERENCES SistemaSom ON DELETE RESTRICT ON UPDATE CASCADE,
+	ecra INT NOT NULL REFERENCES Ecra ON DELETE RESTRICT ON UPDATE CASCADE,
 	UNIQUE(numero, cinema)
 );
 
@@ -130,9 +130,9 @@ CREATE TABLE Pedido(
 	precoOriginal REAL NOT NULL,
 	precoEfetivo REAL NOT NULL, /* DERIVADO */
 	dataPagamento DATE NOT NULL,
-	postoVenda INT NOT NULL REFERENCES PostoVenda ON DELETE SET NULL ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
-	funcionario INT NOT NULL REFERENCES Funcionario ON DELETE SET NULL ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
-	cliente INT NOT NULL REFERENCES Cliente ON DELETE SET NULL ON UPDATE CASCADE /* Must guarantee with trigger that is not null on insert */
+	postoVenda INT NOT NULL REFERENCES PostoVenda ON DELETE RESTRICT ON UPDATE CASCADE,
+	funcionario INT NOT NULL REFERENCES Funcionario ON DELETE RESTRICT ON UPDATE CASCADE,
+	cliente INT NOT NULL REFERENCES Cliente ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE PostoVenda(
