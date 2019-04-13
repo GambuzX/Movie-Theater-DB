@@ -4,6 +4,7 @@ INSERT INTO SistemaSom (nome,classificacao) values ("Basic Sound System" , 3);
 INSERT INTO SistemaSom (nome,classificacao) values ("Ultra Sound System" , 4);
 INSERT INTO SistemaSom (nome,classificacao) values ("IMAX Sound System" , 5);
 
+
 INSERT INTO Ecra (nome,polegadas,classificacao) values("Medium Screen" , 150 , 3);
 INSERT INTO Ecra (nome,polegadas,classificacao) values("Big Screen" , 180 , 3);
 INSERT INTO Ecra (nome,polegadas,classificacao) values("Ultra Screen" , 180 , 4);
@@ -14,15 +15,15 @@ INSERT INTO Cinema (nome,telefone,morada , codigoPostal,email,site) values ('Nor
 INSERT INTO Cinema (nome,telefone,morada , codigoPostal,email,site) values ('MarShopping' , 928492203 , 'Rua Costa Almeida, nº 12' , '4447-183' , 'cinemasmar@gmail.com' , 'www.cinemasmar.com' );
 
 
-INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (1, 0, 150 , 0 , 0);
-INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (2, 0, 200 , 1 , 1);
-INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (3, 0, 200 , 1 , 2);
-INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (4, 0, 300 , 2 , 3);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (1, 1, 150 , 1 , 1);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (2, 1, 200 , 2 , 2);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (3, 1, 200 , 2 , 3);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (4, 1, 300 , 3 , 4);
 
-INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (1, 1, 150 , 0 , 1);
-INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (2, 1, 160 , 1 , 1);
-INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (3, 1, 180 , 1 , 1);
-INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (4, 1, 270 , 1 , 2);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (1, 2, 150 , 1 , 2);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (2, 2, 160 , 2 , 2);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (3, 2, 180 , 2 , 2);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (4, 2, 270 , 2 , 3);
 
 
 INSERT INTO Lugar (sala,fila,numero,VIP) values (1,1,1, 0);
@@ -1644,19 +1645,21 @@ INSERT INTO Lugar (sala,fila,numero,VIP) values (8,15,16, 0);
 INSERT INTO Lugar (sala,fila,numero,VIP) values (8,15,17, 0);
 INSERT INTO Lugar (sala,fila,numero,VIP) values (8,15,18, 0);
 
+
+
 INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Avengers : ENDGAME' , 'Anthony Russo, Joe Russo', 'Após Thanos eliminar metade das criaturas vivas, os Vingadores têm de lidar com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no espaço sem água e comida, Steve Rogers e Natasha Romanov lideram a resistência contra o titã louco.' , 183 , '2019-04-25');
 
 INSERT INTO Categoria (nome,descricao) values ('Ação' , 'Um filme de ação (AO 1945: filme de acção) é um gênero de filme que geralmente envolve uma história de protagonistas do bem contra antagonistas do mal, que resolvem suas disputas com o uso de força física, neles o bem sempre prevalece sobre o mal. Os filmes de ação são comuns de se misturarem com os gêneros policiais e crimes, westerns e guerra, entre outros. ' );
 INSERT INTO Categoria (nome,descricao) values ('Aventura' , 'O filme de aventura é um gênero cinematográfico que pode ser caracterizado como uma história onde um herói enfrenta uma série de obstáculos, exibindo coragem ao enfrentar situações que fogem ao cotidiano.');
 INSERT INTO Categoria (nome,descricao) values ('Fantasia' , 'Fantasia é um gênero da ficção em que se usa geralmente fenômenos sobrenaturais, mágicos e outros como um elemento primário do enredo, tema ou configuração. Muitas obras dentro do gênero ocorrem em mundos imaginários onde há criaturas mágicas e itens mágicos. Geralmente a fantasia distingue-se dos gêneros ficção científica e horror pela expectativa de que ele dirige claramente de temas científicos e macabros, respectivamente, embora haja uma grande sobreposição entre os três, todos os quais são subgêneros da ficção especulativa.');
 
-INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Peter Rowland' , 0 , 5, 'Bom filme!');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Peter Rowland' , 1 , 5, 'Bom filme!');
 
-INSERT INTO FilmeTemCategoria (filme,categoria) values (0,0);
-INSERT INTO FilmeTemCategoria (filme,categoria) values (0,1);
-INSERT INTO FilmeTemCategoria (filme,categoria) values (0,2);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (1,1);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (1,2);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (1,3);
 
-INSERT INTO CinemaTemFilme (cinema,filme) values (0,0);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,1);
 
 --INSERT INTO Sessao (horaInicio , lugaresDisponiveis , sala,filme) values ('2019-04-25T12:00' , SELECT salaID FROM Sala WHERE salaID = 0; , 0 , 0);
 --INSERT INTO Sessao (horaInicio , lugaresDisponiveis , sala,filme) values ('2019-04-25T16:00' , SELECT salaID FROM Sala WHERE salaID = 0; , 0 , 0);
@@ -1666,10 +1669,10 @@ INSERT INTO CinemaTemFilme (cinema,filme) values (0,0);
 
 
 
-INSERT INTO PostoVenda (cinema) values (0);
-INSERT INTO PostoVenda (cinema) values (0);
-
 INSERT INTO PostoVenda (cinema) values (1);
+INSERT INTO PostoVenda (cinema) values (1);
+
+INSERT INTO PostoVenda (cinema) values (2);
 
 
 INSERT INTO Produto (nome,preco) values ('Coca-cola' , 1.5);
@@ -1679,37 +1682,40 @@ INSERT INTO Produto (nome,preco) values ('Pipocas Pequenas' , 2.5);
 INSERT INTO Produto (nome,preco) values ('Agua' , 1);
 
 
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (0,0,100);
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (0,1,100);
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (0,2,100);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (1,1,100);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (1,2,100);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (1,3,100);
 
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (1,0,50);
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (1,1,40);
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (1,2,70);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (2,1,50);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (2,2,40);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (2,3,70);
 
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (2,0,50);
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (2,1,40);
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (2,2,70);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (3,1,50);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (3,2,40);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (3,3,70);
 
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (3,0,50);
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (3,1,40);
-INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (3,2,70);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (4,1,50);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (4,2,40);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (4,3,70);
+
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (5,1,80);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (5,2,0);
+INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (5,3,70);
 
 INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Joao Aguiar' , 259301924 , 9322024419 , '1970-03-08' , 'Rua Indefenida' , '4420-732');
 INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Carlos Oliveira' , 2752312321 , 96342314547 , '2001-11-27' , 'Rua Indefenida' , '4420-732');
 INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Arminda Costa' , 2143342144 , 931356536321 , '1991-06-01' , 'Rua Indefenida' , '4420-732');
 
-INSERT INTO Funcionario (pessoaID , funcoes,salario , cinema , postoVenda , numeroTrabalhador) values (0,'Pedidos de Bar' , 800 , 0,0,1);
+INSERT INTO Funcionario (pessoaID , funcoes,salario , cinema , postoVenda , numeroTrabalhador) values (1,'Pedidos de Bar' , 800 , 1,1,1);
 
-INSERT INTO Cliente (pessoaID) values (1);
 INSERT INTO Cliente (pessoaID) values (2);
+INSERT INTO Cliente (pessoaID) values (3);
 
-INSERT INTO Usual (clienteID) values (1);
+INSERT INTO Adesao (tipo) values ('Jovem'),('Criança'),('Idoso'),('Normal');
 
+INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (2 , 'generico@mail.com' , 1 , '2020-09-12' , 1);
 
-INSERT INTO Cartao (numero , tipo , validade ) values (1234 , 'Jovem' , '2020-10-05');
-
-INSERT INTO Membro (clienteID , email,cartao) values (2 , 'generico@mail.com' , 0);
+/*UPDATE Membro SET desconto = 1 ;
 
 /*
 UPDATE Cliente SET desconto = CASE
@@ -1719,6 +1725,7 @@ UPDATE Cliente SET desconto = CASE
                                     WHEN 'Normal' THEN 15;
                           END
 */
+/*
 UPDATE Membro SET Membro.clienteID.desconto = CASE
                                     Membro.cartao.tipo
                                     WHEN 'Jovem' THEN 25;
