@@ -182,7 +182,7 @@ CREATE TABLE Funcionario(
 
 CREATE TABLE Cliente(
 	pessoaID INT PRIMARY KEY REFERENCES Pessoa,
-	desconto INT CHECK(desconto>=0 and desconto<=100) NOT NULL
+	desconto INT CHECK(desconto>=0 and desconto<=100) NOT NULL DEFAULT 0
 );
 
 CREATE TABLE Usual(
@@ -199,6 +199,5 @@ CREATE TABLE Cartao(
 	cartaoID INTEGER PRIMARY KEY AUTOINCREMENT,
 	numero INT UNIQUE NOT NULL,
 	tipo TEXT NOT NULL,
-	validade DATE NOT NULL,
-	membro INT REFERENCES Membro NOT NULL
+	validade DATE NOT NULL
 );

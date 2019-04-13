@@ -1,3 +1,5 @@
+PRAGMA foreign_keys = ON;
+
 INSERT INTO SistemaSom (nome,classificacao) values ("Basic Sound System" , 3);
 INSERT INTO SistemaSom (nome,classificacao) values ("Ultra Sound System" , 4);
 INSERT INTO SistemaSom (nome,classificacao) values ("IMAX Sound System" , 5);
@@ -1699,8 +1701,30 @@ INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) va
 
 INSERT INTO Funcionario (pessoaID , funcoes,salario , cinema , postoVenda , numeroTrabalhador) values (0,'Pedidos de Bar' , 800 , 0,0,1);
 
-INSERT INTO Cliente (pessoaID , desconto) values (1 , 25);
-INSERT INTO Cliente (pessoaID , desconto) values (2 , 15);
+INSERT INTO Cliente (pessoaID) values (1);
+INSERT INTO Cliente (pessoaID) values (2);
+
+INSERT INTO Usual (clienteID) values (1);
+
+
+INSERT INTO Cartao (numero , tipo , validade ) values (1234 , 'Jovem' , '2020-10-05');
+
+INSERT INTO Membro (clienteID , email,cartao) values (2 , 'generico@mail.com' , 0);
+
+/*
+UPDATE Cliente SET desconto = CASE
+                  SELECT tipo FROM Cartao WHERE cartaoID = SELECT cartao FROM Membro WHERE clienteID = SELECT pessoaID FROM Cliente
+                                    WHEN 'Jovem' THEN 25;
+                                    WHEN 'IDOSO' THEN 25;
+                                    WHEN 'Normal' THEN 15;
+                          END
+*/
+UPDATE Membro SET Membro.clienteID.desconto = CASE
+                                    Membro.cartao.tipo
+                                    WHEN 'Jovem' THEN 25;
+                                    WHEN 'IDOSO' THEN 25;
+                                    WHEN 'Normal' THEN 15;
+                          END
 
 /*
 INSERT INTO Cartao (numero , tipo , validade , membro) values
