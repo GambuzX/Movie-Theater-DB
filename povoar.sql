@@ -1748,15 +1748,15 @@ INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values
 
 
 
-INSERT INTO Pedido (postoVenda , funcionario , cliente) values (1 , 1 , 2);
-INSERT INTO Pedido (postoVenda , funcionario , cliente) values (2 , 1 , 3);
+INSERT INTO Pedido (dataPagamento, postoVenda , funcionario , cliente) values ('2019-04-25T10:00', 1 , 1 , 2);
+INSERT INTO Pedido (dataPagamento, postoVenda , funcionario , cliente) values ('2019-04-25T10:30', 2 , 1 , 3);
 
 
 
-INSERT INTO Bilhete (dataCompra , sessao , lugar , pedido) values ('2019-04-25T10:00' , 1 , 1 , 1);
-INSERT INTO Bilhete (dataCompra , sessao , lugar , pedido) values ('2019-04-25T10:00' , 1 , 2 , 1);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (1 , 1 , 1);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (1 , 2 , 1);
 
-INSERT INTO Bilhete (dataCompra , sessao , lugar , pedido) values ('2019-04-25T15:30' , 2 , 151,2);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (2 , 151,2);
 
 
 

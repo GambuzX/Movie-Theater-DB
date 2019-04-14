@@ -119,7 +119,6 @@ CREATE TABLE CinemaTemFilme(
 
 CREATE TABLE Bilhete(
 	bilheteID INTEGER CONSTRAINT BilhetePK PRIMARY KEY AUTOINCREMENT,
-	dataCompra DATE NOT NULL,
 	sessao INT NOT NULL REFERENCES Sessao ON DELETE CASCADE ON UPDATE CASCADE,
 	lugar INT NOT NULL REFERENCES Lugar ON DELETE CASCADE ON UPDATE CASCADE,
 	pedido INT NOT NULL REFERENCES Pedido ON DELETE CASCADE ON UPDATE CASCADE,
@@ -130,7 +129,7 @@ CREATE TABLE Pedido(
 	pedidoID INTEGER CONSTRAINT PedidoPK PRIMARY KEY AUTOINCREMENT,
 	precoOriginal REAL DEFAULT 0 NOT NULL CHECK(precoOriginal>=0),
 	precoEfetivo REAL DEFAULT 0 NOT NULL CHECK(precoEfetivo>=0), /* DERIVADO */
-	dataPagamento DATE DEFAULT '' NOT NULL,
+	dataPagamento DATE NOT NULL,
 	postoVenda INT NOT NULL REFERENCES PostoVenda ON DELETE CASCADE ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
 	funcionario INT NOT NULL REFERENCES Funcionario ON DELETE CASCADE ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
 	cliente INT NOT NULL REFERENCES Cliente ON DELETE CASCADE ON UPDATE CASCADE /* Must guarantee with trigger that is not null on insert */
