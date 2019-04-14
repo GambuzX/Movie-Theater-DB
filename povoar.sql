@@ -1726,8 +1726,8 @@ INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (5,3,70);
 
 
 INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Joao Aguiar' , 259301924 , 9322024419 , '1970-03-08' , 'Rua Indefenida' , '4420-732');
-INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Carlos Oliveira' , 2752312321 , 96342314547 , '2001-11-27' , 'Rua Indefenida' , '4420-732');
-INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Arminda Costa' , 2143342144 , 931356536321 , '1991-06-01' , 'Rua Indefenida' , '4420-732');
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Carlos Oliveira' , 275231232 , 96342314547 , '2001-11-27' , 'Rua Indefenida' , '4420-732');
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Arminda Costa' , 214334214 , 931356536321 , '1991-06-01' , 'Rua Indefenida' , '4420-732');
 
 
 

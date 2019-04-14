@@ -128,8 +128,8 @@ CREATE TABLE Bilhete(
 
 CREATE TABLE Pedido(
 	pedidoID INTEGER CONSTRAINT PedidoPK PRIMARY KEY AUTOINCREMENT,
-	precoOriginal REAL DEFAULT 0 NOT NULL,
-	precoEfetivo REAL DEFAULT 0 NOT NULL, /* DERIVADO */
+	precoOriginal REAL DEFAULT 0 NOT NULL CHECK(precoOriginal>=0),
+	precoEfetivo REAL DEFAULT 0 NOT NULL CHECK(precoEfetivo>=0), /* DERIVADO */
 	dataPagamento DATE DEFAULT '' NOT NULL,
 	postoVenda INT NOT NULL REFERENCES PostoVenda ON DELETE CASCADE ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
 	funcionario INT NOT NULL REFERENCES Funcionario ON DELETE CASCADE ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
@@ -164,7 +164,7 @@ CREATE TABLE ProdutoAdquirido(
 CREATE TABLE Pessoa(
 	pessoaID INTEGER CONSTRAINT PessoaPK PRIMARY KEY AUTOINCREMENT,
 	nome TEXT NOT NULL,
-	NIF INT UNIQUE NOT NULL,
+	NIF INT UNIQUE NOT NULL CHECK(length(NIF)==9),
 	telefone INT,
 	dataNascimento DATE,
 	morada TEXT,
