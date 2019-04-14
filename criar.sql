@@ -37,8 +37,8 @@ CREATE TABLE Sala(
 	numero INT NOT NULL,
 	cinema INT NOT NULL REFERENCES Cinema ,
 	numLugares INT NOT NULL CHECK(numLugares>=0),
-	sistemaSom INT NOT NULL REFERENCES SistemaSom ON DELETE CASCADE ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
-	ecra INT NOT NULL REFERENCES Ecra ON DELETE CASCADE ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
+	sistemaSom INT NOT NULL REFERENCES SistemaSom ON DELETE RESTRICT ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
+	ecra INT NOT NULL REFERENCES Ecra ON DELETE RESTRICT ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
 	UNIQUE(numero, cinema)
 	FOREIGN KEY(cinema) REFERENCES Cinema(cinemaID) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -130,9 +130,9 @@ CREATE TABLE Pedido(
 	precoOriginal REAL DEFAULT 0 NOT NULL CHECK(precoOriginal>=0),
 	precoEfetivo REAL DEFAULT 0 NOT NULL CHECK(precoEfetivo>=0), /* DERIVADO */
 	dataPagamento DATE NOT NULL,
-	postoVenda INT NOT NULL REFERENCES PostoVenda ON DELETE CASCADE ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
-	funcionario INT NOT NULL REFERENCES Funcionario ON DELETE CASCADE ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
-	cliente INT NOT NULL REFERENCES Cliente ON DELETE CASCADE ON UPDATE CASCADE /* Must guarantee with trigger that is not null on insert */
+	postoVenda INT NOT NULL REFERENCES PostoVenda ON DELETE RESTRICT ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
+	funcionario INT NOT NULL REFERENCES Funcionario ON DELETE RESTRICT ON UPDATE CASCADE, /* Must guarantee with trigger that is not null on insert */
+	cliente INT NOT NULL REFERENCES Cliente ON DELETE RESTRICT ON UPDATE CASCADE /* Must guarantee with trigger that is not null on insert */
 );
 
 CREATE TABLE PostoVenda(
