@@ -1687,9 +1687,11 @@ INSERT INTO CinemaTemFilme (cinema,filme) values (1,1);
 
 
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-04-25T12:00' , 1 , 1);
-INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-04-25T16:00' , 1 , 1);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-04-30T16:00' , 1 , 1);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-04-25T16:00' , 2 , 1);
+
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T16:00' , 2 , 2);
+
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T15:00' , 2 , 3);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T19:00' , 2 , 3);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T23:00' , 2 , 3);
@@ -1736,13 +1738,15 @@ INSERT INTO ProdutoDisponivel (produto,postoVenda,stock) values (5,3,70);
 
 
 
-INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Joao Aguiar' , 259301924 , 9322024419 , '1970-03-08' , 'Rua Indefenida' , '4420-732');
-INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Carlos Oliveira' , 275231232 , 96342314547 , '2001-11-27' , 'Rua Indefenida' , '4420-732');
-INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Arminda Costa' , 214334214 , 931356536321 , '1991-06-01' , 'Rua Indefenida' , '4420-732');
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Joao Aguiar' , 259301924 , 9322024419 , '1970-03-08' , 'Rua Indefinida' , '4420-732');
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Carlos Oliveira' , 275231232 , 96342314547 , '2001-11-27' , 'Rua Indefinida' , '4420-732');
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Arminda Costa' , 214334214 , 931356536321 , '1991-06-01' , 'Rua Indefinida' , '4420-732');
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('José Guimarãoes' , 214876214 , 918704637 , '1997-03-05' , 'Rua Indefinida' , '4562-436');
 
 
 
 INSERT INTO Funcionario (pessoaID , funcoes,salario , cinema , postoVenda , numeroTrabalhador) values (1,'Pedidos de Bar' , 800 , 1,1,1);
+INSERT INTO Funcionario (pessoaID , funcoes,salario , cinema , postoVenda , numeroTrabalhador) values (4,'Gestor de Bar' , 1200 , 2,1,2);
 
 
 
@@ -1759,15 +1763,17 @@ INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values
 
 
 
-INSERT INTO Pedido (dataPagamento, postoVenda , funcionario , cliente) values ('2019-04-25T10:00', 1 , 1 , 2);
-INSERT INTO Pedido (dataPagamento, postoVenda , funcionario , cliente) values ('2019-04-25T10:30', 2 , 1 , 3);
-
+INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (10, 10, '2019-04-25T10:00', 1 , 1 , 2);
+INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (5, 5, '2019-04-25T10:30', 2 , 1 , 3);
+INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (17, 17, '2019-04-29T14:30', 1 , 4 , 3);
 
 
 INSERT INTO Bilhete (sessao , lugar , pedido) values (1 , 1 , 1);
 INSERT INTO Bilhete (sessao , lugar , pedido) values (1 , 2 , 1);
 
-INSERT INTO Bilhete (sessao , lugar , pedido) values (2 , 151,2);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (2 , 151, 2);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (4 , 12, 3);
 
 
 
@@ -1779,4 +1785,7 @@ INSERT INTO LugarOcupado (sessao , lugar , ocupado) values (2 , 151,1);
 
 
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (1 , 1 , 2);
-INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (3 , 1 , 1);
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (3 , 2 , 1);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (1 , 3 , 4);
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 3 , 3);
