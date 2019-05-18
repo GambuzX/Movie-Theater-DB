@@ -1655,7 +1655,8 @@ INSERT INTO Lugar (sala,fila,numero,VIP) values (8,15,18, 0);
 
 
 INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Avengers : ENDGAME' , 'Anthony Russo, Joe Russo', 'Após Thanos eliminar metade das criaturas vivas, os Vingadores têm de lidar com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no espaço sem água e comida, Steve Rogers e Natasha Romanov lideram a resistência contra o titã louco.' , 183 , '2019-04-25');
-
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Pokemon: Detetive Pikachu', 'Rob Letterman',  'Um jovem une forças com o detetive Pikachu para desvendar o mistério por trás do desaparecimento de seu pai. Perseguindo pistas pelas ruas de Ryme City, a dupla dinâmica logo descobre uma trama desonesta que representa uma ameaça ao universo Pokémon.', 105, '2019-05-09');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('My Little Pony: The Movie', 'Jayson Thiessen',  'A paz reina em Equestria, quando a pônei Twilight Sparkle se prepara para criar uma festa fabulosa para os habitantes locais. Mas os planos são arruinados pele chegada do Rei Storm e da inimiga Tempesta, que planejam roubar os poderes das princesas na intenção de controlar o clima e dominar o mundo.', 104, '2017-12-04');
 
 
 INSERT INTO Categoria (nome,descricao) values ('Ação' , 'Um filme de ação (AO 1945: filme de acção) é um gênero de filme que geralmente envolve uma história de protagonistas do bem contra antagonistas do mal, que resolvem suas disputas com o uso de força física, neles o bem sempre prevalece sobre o mal. Os filmes de ação são comuns de se misturarem com os gêneros policiais e crimes, westerns e guerra, entre outros. ' );
@@ -1665,12 +1666,18 @@ INSERT INTO Categoria (nome,descricao) values ('Fantasia' , 'Fantasia é um gên
 
 
 INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Peter Rowland' , 1 , 5, 'Bom filme!');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Marie Johnson' , 1 , 3, 'Chorei no fim :(');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Ash Ketchum' , 2 , 3, 'TAO FOOOOOOOOOOFO!');
 
 
 
 INSERT INTO FilmeTemCategoria (filme,categoria) values (1,1);
 INSERT INTO FilmeTemCategoria (filme,categoria) values (1,2);
 INSERT INTO FilmeTemCategoria (filme,categoria) values (1,3);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (2,2);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (2,3);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (3,2);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (3,3);
 
 
 
@@ -1682,6 +1689,10 @@ INSERT INTO CinemaTemFilme (cinema,filme) values (1,1);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-04-25T12:00' , 1 , 1);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-04-25T16:00' , 1 , 1);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-04-25T16:00' , 2 , 1);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T16:00' , 2 , 2);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T15:00' , 2 , 3);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T19:00' , 2 , 3);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T23:00' , 2 , 3);
 
 
 
