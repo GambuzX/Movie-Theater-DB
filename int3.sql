@@ -3,7 +3,7 @@
 .nullvalue NULL
 
 /* 
-Rendimento total de cada filme durante determinado periodo de tempo
+Rendimento total dos 10 melhores filmes durante determinado periodo de tempo
 bilhetes + produtos
 */
  
@@ -13,20 +13,25 @@ SELECT nome as "Filme", (SELECT IFNULL(SUM(val), 0)
                                 (SELECT P.precoEfetivo as val
                                 FROM Pedido P
                                 WHERE P.pedidoID in (SELECT B.pedido
-                                                    FROM (Bilhete B INNER JOIN Sessao S ON B.sessao=S.sessaoID) INNER JOIN Filme F ON S.filme=F.filmeID
-                                                    WHERE F.nome=filme.nome 
+                                                    FROM Bilhete B INNER JOIN Sessao S INNER JOIN Filme F
+                                                    WHERE B.sessao=S.sessaoID
+                                                    AND S.filme=F.filmeID
+                                                    AND F.nome=filme.nome 
                                                     AND date(S.horaInicio) >= '2019-04-29' 
                                                     AND date(S.horaInicio) <= '2019-06-23')
                                 UNION ALL
                                 -- produtos
                                 SELECT PA.quantidade*Prod.preco as val
-                                    FROM (Produto Prod INNER JOIN ProdutoAdquirido PA ON Prod.produtoID=PA.produto) 
-                                        INNER JOIN Pedido P
-                                        ON PA.pedido=P.pedidoID
-                                        WHERE P.pedidoID in (SELECT B.pedido
-                                                                FROM (Bilhete B INNER JOIN Sessao S ON B.sessao=S.sessaoID) INNER JOIN Filme F ON S.filme=F.filmeID
-                                                                WHERE F.nome=filme.nome
-                                                                AND date(S.horaInicio) >= '2019-04-29' 
-                                                                AND date(S.horaInicio) <= '2019-06-23'))) as "Rendimento Total"
+                                    FROM Produto Prod INNER JOIN ProdutoAdquirido PA INNER JOIN Pedido P
+                                        WHERE Prod.produtoID=PA.produto
+                                        AND PA.pedido=P.pedidoID
+                                        AND P.pedidoID in (SELECT B.pedido
+                                                            FROM Bilhete B INNER JOIN Sessao S INNER JOIN Filme F
+                                                            WHERE B.sessao=S.sessaoID
+                                                            AND S.filme=F.filmeID
+                                                            AND F.nome=filme.nome 
+                                                            AND date(S.horaInicio) >= '2019-04-29' 
+                                                            AND date(S.horaInicio) <= '2019-06-23'))) as "Rendimento Total"
 FROM Filme filme
-ORDER BY "Rendimento Total" DESC;
+ORDER BY "Rendimento Total" DESC
+LIMIT 10;
