@@ -4,7 +4,7 @@ CREATE TRIGGER CompraBilhete
 AFTER INSERT ON Bilhete
 FOR EACH ROW
 BEGIN
-    INSERT INTO LugarOcupado(sessao, lugar) Values(New.sessao, New.lugar);
+    INSERT INTO LugarOcupado(sessao, lugar) VALUES(New.sessao, New.lugar);
 
     UPDATE Sessao
     SET lugaresDisponiveis=lugaresDisponiveis-1

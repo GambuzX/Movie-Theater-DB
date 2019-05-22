@@ -4,6 +4,7 @@ CREATE TRIGGER DefineDesconto
 AFTER INSERT ON Membro
 FOR EACH ROW
 BEGIN
+
     UPDATE Cliente
     SET desconto=(SELECT CASE
                             WHEN tipo='Jovem' THEN 15
@@ -17,4 +18,5 @@ BEGIN
                     WHERE M.clienteID=NEW.clienteID
                     AND NEW.adesao=A.adesaoID)
     WHERE Cliente.pessoaID=NEW.clienteID;
+
 END;

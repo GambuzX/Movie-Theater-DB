@@ -1779,7 +1779,6 @@ INSERT INTO Adesao (tipo) values ('Jovem'),('Criança'),('Idoso'),('Normal'),('E
 INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (2 , 'generico@mail.com' , 1 , '2020-09-12' , 2);
 
 
-
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (10, 8, '2019-04-25T10:00', 1 , 1 , 2);
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (5, 5, '2019-04-25T10:30', 2 , 1 , 3);
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (17, 17, '2019-04-29T14:30', 1 , 4 , 3);
