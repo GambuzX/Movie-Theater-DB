@@ -1664,6 +1664,7 @@ INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Arceus and 
 INSERT INTO Categoria (nome,descricao) values ('Ação' , 'Um filme de ação (AO 1945: filme de acção) é um gênero de filme que geralmente envolve uma história de protagonistas do bem contra antagonistas do mal, que resolvem suas disputas com o uso de força física, neles o bem sempre prevalece sobre o mal. Os filmes de ação são comuns de se misturarem com os gêneros policiais e crimes, westerns e guerra, entre outros. ' );
 INSERT INTO Categoria (nome,descricao) values ('Aventura' , 'O filme de aventura é um gênero cinematográfico que pode ser caracterizado como uma história onde um herói enfrenta uma série de obstáculos, exibindo coragem ao enfrentar situações que fogem ao cotidiano.');
 INSERT INTO Categoria (nome,descricao) values ('Fantasia' , 'Fantasia é um gênero da ficção em que se usa geralmente fenômenos sobrenaturais, mágicos e outros como um elemento primário do enredo, tema ou configuração. Muitas obras dentro do gênero ocorrem em mundos imaginários onde há criaturas mágicas e itens mágicos. Geralmente a fantasia distingue-se dos gêneros ficção científica e horror pela expectativa de que ele dirige claramente de temas científicos e macabros, respectivamente, embora haja uma grande sobreposição entre os três, todos os quais são subgêneros da ficção especulativa.');
+INSERT INTO Categoria (nome,descricao) values ('Terror' , 'Very spooky!!');
 
 
 
@@ -1676,12 +1677,18 @@ INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Ash Ketchum' 
 INSERT INTO FilmeTemCategoria (filme,categoria) values (1,1);
 INSERT INTO FilmeTemCategoria (filme,categoria) values (1,2);
 INSERT INTO FilmeTemCategoria (filme,categoria) values (1,3);
+
 INSERT INTO FilmeTemCategoria (filme,categoria) values (2,2);
 INSERT INTO FilmeTemCategoria (filme,categoria) values (2,3);
+
 INSERT INTO FilmeTemCategoria (filme,categoria) values (3,2);
 INSERT INTO FilmeTemCategoria (filme,categoria) values (3,3);
+
 INSERT INTO FilmeTemCategoria (filme,categoria) values (4,3);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (4,4);
+
 INSERT INTO FilmeTemCategoria (filme,categoria) values (5,3);
+
 INSERT INTO FilmeTemCategoria (filme,categoria) values (6,3);
 
 
@@ -1697,12 +1704,14 @@ INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-04-25T16:00' , 2 , 1)
 
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T16:00' , 2 , 2);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-06-29T23:00' , 2 , 2);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-06-29T21:00' , 5 , 2);
 
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T15:00' , 2 , 3);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T19:00' , 2 , 3);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T23:00' , 2 , 3);
 
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2015-08-01T23:00' , 2 , 4);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2015-08-01T23:00' , 5 , 4);
 
 
 
@@ -1774,6 +1783,7 @@ INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (10, 10, '2019-04-25T10:00', 1 , 1 , 2);
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (5, 5, '2019-04-25T10:30', 2 , 1 , 3);
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (17, 17, '2019-04-29T14:30', 1 , 4 , 3);
+INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (12, 12, '2019-01-17T17:30', 1 , 4 , 2);
 
 
 INSERT INTO Bilhete (sessao , lugar , pedido) values (1 , 1 , 1);
@@ -1782,6 +1792,10 @@ INSERT INTO Bilhete (sessao , lugar , pedido) values (1 , 2 , 1);
 INSERT INTO Bilhete (sessao , lugar , pedido) values (2 , 151, 2);
 
 INSERT INTO Bilhete (sessao , lugar , pedido) values (4 , 12, 3);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (6 , 12, 4);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (10 , 12, 4);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (11 , 12, 4);
 
 
 

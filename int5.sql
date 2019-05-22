@@ -2,10 +2,40 @@
 .headers on
 .nullvalue NULL
 
-/* Quais realizadores dao dinheiro */
+DROP VIEW IF EXISTS CategoriasPorCinema;
 
-/* Realizador preferido por cinema */
+/* Melhor e pior genero de filme por cinema */
 
-/* Tipo de filmes preferido por cinema */
+CREATE VIEW CategoriasPorCinema AS
+SELECT C.nome as nomeCinema, Cat.nome as nomeCat, COUNT(bilheteID) as nBilhetes
+FROM Bilhete B JOIN Sessao S JOIN Sala JOIN Cinema C JOIN Filme F JOIN FilmeTemCategoria FTC JOIN Categoria Cat
+WHERE B.sessao=S.sessaoID
+AND  S.sala=Sala.salaID
+AND Sala.cinema=C.cinemaID
+AND S.filme=F.filmeID
+AND F.filmeID=FTC.filme
+AND FTC.categoria=Cat.categoriaID
+GROUP BY C.nome, Cat.nome
+UNION
+SELECT C.nome as nomeCinema, Cat.nome as nomeCat, 0 as nBilhetes
+FROM Cinema C, Categoria Cat
+WHERE NOT EXISTS (SELECT *
+                FROM Bilhete B JOIN Sessao S JOIN Sala JOIN Cinema JOIN Filme F JOIN FilmeTemCategoria FTC JOIN Categoria
+                WHERE B.sessao=S.sessaoID
+                AND  S.sala=Sala.salaID
+                AND Sala.cinema=C.cinemaID
+                AND S.filme=F.filmeID
+                AND F.filmeID=FTC.filme
+                AND FTC.categoria=Cat.categoriaID)
+ORDER BY nomeCinema, nomeCat ASC;
 
-/* 10 clientes mais fieis LIMIT 10  */
+SELECT *
+FROM (SELECT nomeCinema as "Cinema", nomeCat as "Favorite"
+        FROM CategoriasPorCinema
+        GROUP BY nomeCinema
+        HAVING MAX(nBilhetes))
+    NATURAL JOIN
+    (SELECT nomeCinema as "Cinema", nomeCat as "Worst"
+        FROM CategoriasPorCinema
+        GROUP BY nomeCinema
+        HAVING MIN(nBilhetes) OR nBilhetes=0);
