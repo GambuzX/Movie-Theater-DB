@@ -1798,14 +1798,6 @@ INSERT INTO Bilhete (sessao , lugar , pedido) values (10 , 12, 4);
 INSERT INTO Bilhete (sessao , lugar , pedido) values (11 , 12, 4);
 
 
-
-INSERT INTO LugarOcupado (sessao , lugar , ocupado) values (1 , 1 , 1);
-INSERT INTO LugarOcupado (sessao , lugar , ocupado) values (1 , 2 , 1);
-
-INSERT INTO LugarOcupado (sessao , lugar , ocupado) values (2 , 151,1);
-
-
-
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (1 , 1 , 2);
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (3 , 2 , 1);
 
