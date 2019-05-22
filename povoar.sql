@@ -1772,7 +1772,7 @@ INSERT INTO Cliente (pessoaID) values (3);
 
 
 
-INSERT INTO Adesao (tipo) values ('Jovem'),('Criança'),('Idoso'),('Normal');
+INSERT INTO Adesao (tipo) values ('Jovem'),('Criança'),('Idoso'),('Normal'),('Estudante');
 
 
 
