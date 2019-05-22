@@ -1,4 +1,7 @@
 PRAGMA foreign_keys = ON;
+.headers on
+.mode columns
+.nullvalue NULL
 
 INSERT INTO Pessoa (pessoaID, nome,NIF,telefone,dataNascimento , morada , codigoPostal) values (400, 'Joao Aguiar' , 259371924 , 9322024419 , '1970-03-08' , 'Rua Indefinida' , '4420-732');
 INSERT INTO Pessoa (pessoaID, nome,NIF,telefone,dataNascimento , morada , codigoPostal) values (401, 'Joao Aguiar' , 259501924 , 9322024419 , '1970-03-08' , 'Rua Indefinida' , '4420-732');

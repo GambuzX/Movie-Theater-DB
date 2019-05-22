@@ -1,7 +1,7 @@
 PRAGMA foreign_keys = ON;
 
 CREATE TRIGGER VerificaPrecoEfetivo
-AFTER UPDATE ON Pedido
+AFTER UPDATE OF precoOriginal, precoEfetivo, cliente ON Pedido
 FOR EACH ROW
 BEGIN
     UPDATE Pedido
