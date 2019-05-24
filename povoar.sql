@@ -1799,6 +1799,7 @@ INSERT INTO Bilhete (sessao , lugar , pedido) values (11 , 12, 4);
 
 
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (1 , 1 , 2);
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 1 , 1);
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (3 , 2 , 1);
 
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (1 , 3 , 4);
