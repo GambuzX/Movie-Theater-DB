@@ -16,6 +16,8 @@ INSERT INTO Ecra (nome,polegadas,classificacao) values("IMAX Screen" , 200 , 5);
 
 INSERT INTO Cinema (nome,telefone,morada , codigoPostal,email,site) values ('NorteShopping' , 919234571 , 'Rua Paços Delgado, nº 41' , '4440-225' , 'cinemasnorte@gmail.com' , 'www.cinemasnorte.com' );
 INSERT INTO Cinema (nome,telefone,morada , codigoPostal,email,site) values ('MarShopping' , 928492203 , 'Rua Costa Almeida, nº 12' , '4447-183' , 'cinemasmar@gmail.com' , 'www.cinemasmar.com' );
+INSERT INTO Cinema (nome,telefone,morada , codigoPostal,email,site) values ('Parque Nascente' , 928983005 , 'Praceta Parque Nascente, nº 35' , '4435-182' , 'parquenascente@gmail.com' , 'www.parquenascente.com' );
+INSERT INTO Cinema (nome,telefone,morada , codigoPostal,email,site) values ('Arrábida Shopping' , 986832458 , 'Praceta de Henrique Moreira, nº 244' , '4400-346' , 'arrabidasgmail.com' , 'wwww.arrabidas.com' );
 
 
 
@@ -24,12 +26,20 @@ INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (2, 1, 200 , 
 INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (3, 1, 200 , 2 , 3);
 INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (4, 1, 300 , 3 , 4);
 
-
-
 INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (1, 2, 150 , 1 , 2);
 INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (2, 2, 160 , 2 , 2);
 INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (3, 2, 180 , 2 , 2);
 INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (4, 2, 270 , 2 , 3);
+
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (1, 3, 110 , 1 , 1);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (2, 3, 100 , 2 , 2);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (3, 3, 150 , 2 , 2);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (4, 3, 120 , 2 , 3);
+
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (1, 4, 150 , 1 , 1);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (2, 4, 160 , 2 , 1);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (3, 4, 200 , 2 , 2);
+INSERT INTO Sala (numero,cinema,numLugares,sistemaSom,ecra) values (4, 4, 270 , 2 , 2);
 
 
 
@@ -1651,26 +1661,92 @@ INSERT INTO Lugar (sala,fila,numero,VIP) values (8,15,15, 0);
 INSERT INTO Lugar (sala,fila,numero,VIP) values (8,15,16, 0);
 INSERT INTO Lugar (sala,fila,numero,VIP) values (8,15,17, 0);
 INSERT INTO Lugar (sala,fila,numero,VIP) values (8,15,18, 0);
+INSERT INTO Lugar (sala,fila,numero,VIP) values (9,15,18, 0);
+INSERT INTO Lugar (sala,fila,numero,VIP) values (13,15,18, 0);
 
 
 
 INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Avengers : ENDGAME' , 'Anthony Russo, Joe Russo', 'Após Thanos eliminar metade das criaturas vivas, os Vingadores têm de lidar com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no espaço sem água e comida, Steve Rogers e Natasha Romanov lideram a resistência contra o titã louco.' , 183 , '2019-04-25');
 INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Pokemon: Detetive Pikachu', 'Rob Letterman',  'Um jovem une forças com o detetive Pikachu para desvendar o mistério por trás do desaparecimento de seu pai. Perseguindo pistas pelas ruas de Ryme City, a dupla dinâmica logo descobre uma trama desonesta que representa uma ameaça ao universo Pokémon.', 105, '2019-05-09');
 INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('My Little Pony: The Movie', 'Jayson Thiessen',  'A paz reina em Equestria, quando a pônei Twilight Sparkle se prepara para criar uma festa fabulosa para os habitantes locais. Mas os planos são arruinados pele chegada do Rei Storm e da inimiga Tempesta, que planejam roubar os poderes das princesas na intenção de controlar o clima e dominar o mundo.', 104, '2017-12-04');
-INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Pokemonzilla', 'Josh Nab',  'Pokemons radioativos de tamanho absurdo tentam destruir Pallet Town.', 95, '2015-04-01');
-INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('The Official Pokemon Movie', 'Wataru Nobuya',  'Não há palavras que descrevam este filme.', 156, '2016-08-05');
-INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Arceus and the Jewel of Life', 'Hideki Sonoda',  'Há milhões de anos, Arceus salvou a população do mundo, humanos e pokémons, de um meteoro que devastaria a Terra e se feriu durante a missão. Curado por Damos, deu a ele a joia chamada "Órbita da Vida", que continha os 5 atributos do mundo Pokemon.', 98, '2009-07-18');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Pokemonzilla', 'Josh Nab',  'Pokemons radioativos de tamanho absurdo tentam destruir Pallet Town.', 95, '2015-03-01');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('The Official Pokemon Movie', 'Wataru Nobuya',  'Não há palavras que descrevam este filme.', 156, '2019-02-05');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Arceus and the Jewel of Life', 'Hideki Sonoda',  'Há milhões de anos, Arceus salvou a população do mundo, humanos e pokémons, de um meteoro que devastaria a Terra e se feriu durante a missão. Curado por Damos, deu a ele a joia chamada "Órbita da Vida", que continha os 5 atributos do mundo Pokemon.', 98, '2019-03-18');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Minions', 'Pierre Coffin',  'Seres amarelos milenares, os minions têm uma missão: servir os maiores vilões. Em depressão desde a morte de seu antigo mestre, eles tentam encontrar um novo chefe. Três voluntários, Kevin, Stuart e Bob vão até uma convenção de vilões nos Estados Unidos e lá se encantam com Scarlet Overkill, que ambiciona ser a primeira mulher a dominar o mundo.', 91, '2015-06-17');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Back to the Future I', 'Robert Zemeckis',  'Marty McFly, um adolescente de uma pequena cidade californiana, é transportado para a década de 1950 quando a experiência do excêntrico cientista Doc Brown dá errado. Viajando no tempo em um carro modificado, Marty conhece versões jovens de seus pais e precisa fazer com que eles se apaixonem, ou então ele deixará de existir. Para complicar, Marty precisa voltar para casa a tempo de salvar o cientista.', 116, '1985-05-04');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Back to the Future II', 'Robert Zemeckis',  'Marty McFly, um adolescente de uma pequena cidade californiana, é transportado para a década de 1950 quando a experiência do excêntrico cientista Doc Brown dá errado. Viajando no tempo em um carro modificado, Marty conhece versões jovens de seus pais e precisa fazer com que eles se apaixonem, ou então ele deixará de existir. Para complicar, Marty precisa voltar para casa a tempo de salvar o cientista.', 116, '1985-05-04');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Back to the Future III', 'Robert Zemeckis',  'Marty McFly, um adolescente de uma pequena cidade californiana, é transportado para a década de 1950 quando a experiência do excêntrico cientista Doc Brown dá errado. Viajando no tempo em um carro modificado, Marty conhece versões jovens de seus pais e precisa fazer com que eles se apaixonem, ou então ele deixará de existir. Para complicar, Marty precisa voltar para casa a tempo de salvar o cientista.', 116, '1985-05-04');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Titanic', 'James Cameron',  'Um artista pobre e uma jovem rica se conhecem e se apaixonam na fatídica jornada do Titanic, em 1912. Embora esteja noiva do arrogante herdeiro de uma siderúrgica, a jovem desafia sua família e amigos em busca do verdadeiro amor.', 195, '1998-01-16');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('The Godfather', '-', '-', 90, '2010-10-10');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Pulp Fiction', '-', '-', 90, '2010-10-10');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Dark Knight', '-', '-', 90, '2010-10-10');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('IT', '-', '-', 90, '2010-10-10');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('Matrix', '-', '-', 90, '2010-10-10');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('UP - Altamente', '-', '-', 90, '2010-10-10');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('O Rei Leão', '-', '-', 90, '2010-10-10');
+INSERT INTO Filme (nome,diretor,resumo,duracao,dataEstreia) values ('WALL-E', '-', '-', 90, '2010-10-10');
 
 INSERT INTO Categoria (nome,descricao) values ('Ação' , 'Um filme de ação (AO 1945: filme de acção) é um gênero de filme que geralmente envolve uma história de protagonistas do bem contra antagonistas do mal, que resolvem suas disputas com o uso de força física, neles o bem sempre prevalece sobre o mal. Os filmes de ação são comuns de se misturarem com os gêneros policiais e crimes, westerns e guerra, entre outros. ' );
 INSERT INTO Categoria (nome,descricao) values ('Aventura' , 'O filme de aventura é um gênero cinematográfico que pode ser caracterizado como uma história onde um herói enfrenta uma série de obstáculos, exibindo coragem ao enfrentar situações que fogem ao cotidiano.');
 INSERT INTO Categoria (nome,descricao) values ('Fantasia' , 'Fantasia é um gênero da ficção em que se usa geralmente fenômenos sobrenaturais, mágicos e outros como um elemento primário do enredo, tema ou configuração. Muitas obras dentro do gênero ocorrem em mundos imaginários onde há criaturas mágicas e itens mágicos. Geralmente a fantasia distingue-se dos gêneros ficção científica e horror pela expectativa de que ele dirige claramente de temas científicos e macabros, respectivamente, embora haja uma grande sobreposição entre os três, todos os quais são subgêneros da ficção especulativa.');
 INSERT INTO Categoria (nome,descricao) values ('Terror' , 'Very spooky!!');
-
+INSERT INTO Categoria (nome,descricao) values ('Ficção Científica' , 'Very spooky!!');
+INSERT INTO Categoria (nome,descricao) values ('Romance' , 'Muito fofo.');
+INSERT INTO Categoria (nome,descricao) values ('Comédia' , 'Very funny! Aahaha');
 
 
 INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Peter Rowland' , 1 , 5, 'Bom filme!');
-INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Marie Johnson' , 1 , 3, 'Chorei no fim :(');
-INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Ash Ketchum' , 2 , 3, 'TAO FOOOOOOOOOOFO!');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Marie Johnson' , 1 , 4, 'Chorei no fim :(');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Marie Johnson' , 1 , 5, 'Ja posso dar spoilers hehe');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Ash Ketchum' , 2 , 5, 'TAO FOOOOOOOOOOFO!');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Ash Ketchum' , 2 , 5, 'TAO FOOOOOOOOOOFO AGAIN!');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Brock' , 2 , 5, 'Loved it');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Ash Ketchum' , 2 , 5, 'CONTINUA TAO FOOOOOOOOOOFO!');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Team Rocker James' , 2 , 3, 'Eu queria apanhar o pikachu');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Team Rocker Jessie' , 2 , 2, 'Eu queria apanhar o pikachu tambem');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 1' , 3 , 3, 'Eu quero um ponei agora');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 3 , 3, 'gostei mais do pikachu');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 3' , 3 , 4, 'fofo');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 3' , 4 , 1, 'scary');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 4' , 4 , 2, 'extra scary');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 1' , 5 , 4, 'beautifull');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 6 , 5, 'adorei');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 6 , 4, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 7 , 4, 'adorei');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 7 , 3, 'decente');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 8 , 3, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 9 , 1, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 10 , 2, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 11, 3, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 12, 3, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 13, 4, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 14, 1, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 15, 2, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 16, 4, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 17, 5, 'adorei');
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 17, 1, 'lixo');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 18, 4, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 19, 2, 'adorei');
+
+INSERT INTO Critica (autor,filme,classificacao,descricao) values ('Pessoa 2' , 6 , 1, 'adorei');
 
 
 
@@ -1691,11 +1767,96 @@ INSERT INTO FilmeTemCategoria (filme,categoria) values (5,3);
 
 INSERT INTO FilmeTemCategoria (filme,categoria) values (6,3);
 
+INSERT INTO FilmeTemCategoria (filme,categoria) values (7,3);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (7,7);
+
+INSERT INTO FilmeTemCategoria (filme,categoria) values (8,5);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (9,5);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (10,5);
+
+INSERT INTO FilmeTemCategoria (filme,categoria) values (11,6);
+
+INSERT INTO FilmeTemCategoria (filme,categoria) values (12,1);
+
+INSERT INTO FilmeTemCategoria (filme,categoria) values (13,1);
+
+INSERT INTO FilmeTemCategoria (filme,categoria) values (14,1);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (14,3);
+
+INSERT INTO FilmeTemCategoria (filme,categoria) values (15,3);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (15,4);
+
+INSERT INTO FilmeTemCategoria (filme,categoria) values (16,1);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (16,2);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (16,5);
+
+INSERT INTO FilmeTemCategoria (filme,categoria) values (17,3);
+INSERT INTO FilmeTemCategoria (filme,categoria) values (17,7);
+
+INSERT INTO FilmeTemCategoria (filme,categoria) values (18,3);
+
+INSERT INTO FilmeTemCategoria (filme,categoria) values (19,3);
 
 
 INSERT INTO CinemaTemFilme (cinema,filme) values (1,1);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,2);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,3);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,4);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,5);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,6);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,7);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,8);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,9);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,10);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,11);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,13);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,14);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,15);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,16);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,17);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,18);
+INSERT INTO CinemaTemFilme (cinema,filme) values (1,19);
 
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,1);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,2);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,3);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,4);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,5);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,6);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,7);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,8);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,9);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,10);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,11);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,13);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,14);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,15);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,16);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,17);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,18);
+INSERT INTO CinemaTemFilme (cinema,filme) values (2,19);
 
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,1);
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,2);
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,3);
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,4);
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,5);
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,8);
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,9);
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,11);
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,17);
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,18);
+INSERT INTO CinemaTemFilme (cinema,filme) values (3,19);
+
+INSERT INTO CinemaTemFilme (cinema,filme) values (4,1);
+INSERT INTO CinemaTemFilme (cinema,filme) values (4,2);
+INSERT INTO CinemaTemFilme (cinema,filme) values (4,3);
+INSERT INTO CinemaTemFilme (cinema,filme) values (4,4);
+INSERT INTO CinemaTemFilme (cinema,filme) values (4,5);
+INSERT INTO CinemaTemFilme (cinema,filme) values (4,6);
+INSERT INTO CinemaTemFilme (cinema,filme) values (4,9);
+INSERT INTO CinemaTemFilme (cinema,filme) values (4,10);
+INSERT INTO CinemaTemFilme (cinema,filme) values (4,19);
 
 
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-04-25T12:00' , 1 , 1);
@@ -1711,9 +1872,42 @@ INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T19:00' , 2 , 3)
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-24T23:00' , 2 , 3);
 
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2015-08-01T23:00' , 2 , 4);
-INSERT INTO Sessao (horaInicio , sala,filme) values ('2015-08-01T23:00' , 5 , 4);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2015-08-01T23:00' , 2 , 4);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('201-08-02T23:00' , 5 , 4);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2015-08-03T23:00' , 5 , 4);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2015-08-04T23:00' , 5 , 4);
 
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-01T23:00' , 5 , 5);
 
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-01T23:00' , 5 , 6);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-02T23:00' , 5 , 7);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-03T23:00' , 5 , 8);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T23:00' , 5 , 9);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-05T23:00' , 1 , 10);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-06T23:00' , 2 , 11);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-07T23:00' , 1 , 12);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-08T23:00' , 1 , 13);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-09T23:00' , 2 , 14);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-01T23:00' , 2 , 15);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-02T23:00' , 5 , 16);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-02T23:00' , 1 , 17);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-03T23:00' , 5 , 18);
+
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T23:00' , 2 , 19);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T23:00' , 9 , 11);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T23:00' , 13 , 15);
 
 
 INSERT INTO PostoVenda (cinema) values (1);
@@ -1773,10 +1967,11 @@ INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) va
 INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Rui de Sá' , 214876226 , 918704648 , '1997-09-19' , 'Rua Indefinida' , '4562-436');
 INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Ana Baptista' , 214876227 , 918704649 , '1997-09-20' , 'Rua Indefinida' , '4562-436');
 INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Cláudia Dias' , 214876229 , 918704650 , '1997-09-21' , 'Rua Indefinida' , '4562-436');
-INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Manuel José' , 214876229 , 918704651 , '1997-09-22' , 'Rua Indefinida' , '4562-436');
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Manuel José' , 214876549 , 918704651 , '1997-09-22' , 'Rua Indefinida' , '4562-436');
 INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Paulo Jorge Pequeno' , 214876252 , 918704652 , '1997-09-23' , 'Rua Indefinida' , '4562-436');
 INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Victor Nogueira' , 214876253 , 918704653 , '1997-09-24' , 'Rua Indefinida' , '4562-436');
 INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Luís Valente' , 214876254 , 918704654 , '1997-09-25' , 'Rua Indefinida' , '4562-436');
+INSERT INTO Pessoa (nome,NIF,telefone,dataNascimento , morada , codigoPostal) values ('Luisa Meireles' , 254876254 , 918704654 , '1997-09-25' , 'Rua Indefinida' , '4562-436');
 
 
 
@@ -1872,6 +2067,41 @@ INSERT INTO Bilhete (sessao , lugar , pedido) values (6 , 12, 4);
 INSERT INTO Bilhete (sessao , lugar , pedido) values (10 , 12, 4);
 INSERT INTO Bilhete (sessao , lugar , pedido) values (11 , 12, 4);
 
+INSERT INTO Bilhete (sessao , lugar , pedido) values (12 , 12, 4);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (13 , 12, 5);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (14 , 12, 6);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (14 , 16, 2);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (15 , 12, 7);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (16 , 12, 8);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (17 , 12, 9);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (17 , 13, 10);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (17 , 14, 11);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (17 , 15, 12);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (17 , 16, 13);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (18 , 12, 10);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (18 , 14, 1);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (18 , 15, 2);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (19 , 12, 11);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (20 , 12, 12);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (21 , 12, 12);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (21 , 50, 13);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (22 , 12, 1);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (22 , 50, 2);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (22 , 54, 3);
+
+INSERT INTO Bilhete (sessao , lugar , pedido) values (30 , 54, 3);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (31 , 54, 3);
+
 
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (1 , 1 , 2);
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 1 , 1);
@@ -1879,3 +2109,19 @@ INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (3 , 2 , 1);
 
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (1 , 3 , 4);
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 3 , 3);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 4 , 3);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 5 , 2);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 6 , 1);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 7 , 5);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 8 , 4);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 9 , 7);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 10 , 3);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 11, 1);
