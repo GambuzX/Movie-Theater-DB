@@ -1908,6 +1908,11 @@ INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-03T23:00' , 5 , 18
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T23:00' , 2 , 19);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T23:00' , 9 , 11);
 INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T23:00' , 13 , 15);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T12:00' , 9 , 11);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T12:00' , 9 , 11);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T12:00' , 9 , 11);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T15:00' , 13 , 15);
+INSERT INTO Sessao (horaInicio , sala,filme) values ('2019-05-04T15:00' , 13 , 15);
 
 
 INSERT INTO PostoVenda (cinema) values (1);
