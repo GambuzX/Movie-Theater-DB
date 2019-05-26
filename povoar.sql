@@ -2131,13 +2131,13 @@ INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (3 , 2 , 1);
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (1 , 3 , 4);
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 3 , 3);
 
-INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 4 , 3);
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (4 , 4 , 3);
 
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 5 , 2);
 
-INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 6 , 1);
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (4 , 6 , 1);
 
-INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 7 , 5);
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (1 , 7 , 5);
 
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 8 , 4);
 
@@ -2146,3 +2146,11 @@ INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 9 , 7);
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 10 , 3);
 
 INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (2 , 11, 1);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (5 , 1, 1);
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (5 , 2, 1);
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (5 , 3, 1);
+
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (3 , 13, 12);
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (3 , 12, 1);
+INSERT INTO ProdutoAdquirido (produto , pedido , quantidade) values (5 , 12, 10);

@@ -22,15 +22,13 @@ FROM PedidosPorCinemaPorCliente
 GROUP BY nomeCinema;
 
 
-SELECT nomeCinema as "Cinema", nomePessoa as "Melhor cliente", maxPedidos as "Num pedidos 1", segundoMelhor as "Segundo melhor cliente", pedidos2 as "Num pedidos 2"
-FROM
-    MelhorClientePorCinema
+SELECT nomeCinema as "Cinema", nomePessoa as "Melhor cliente", maxPedidos as "Pedidos 1º", segundoMelhor as "2º melhor cliente", pedidos2 as "Pedidos 2º"
+FROM MelhorClientePorCinema
 NATURAL JOIN
     (SELECT nomeCinema, nomePessoa as segundoMelhor, MAX(nPedidos) as pedidos2
-    FROM (SELECT *
-            FROM PedidosPorCinemaPorCliente T
-            WHERE NOT EXISTS (SELECT *
-                                FROM MelhorClientePorCinema M
-                                WHERE T.nomeCinema=M.nomeCinema AND T.nomePessoa=nomePessoa))
+        FROM PedidosPorCinemaPorCliente T
+        WHERE NOT EXISTS (SELECT *
+                            FROM MelhorClientePorCinema M
+                            WHERE T.nomeCinema=M.nomeCinema AND T.nomePessoa=nomePessoa)
     GROUP BY nomeCinema)
 ORDER BY nomeCinema;
