@@ -4,9 +4,10 @@
 
 /* 10 clientes mais fieis por cinema LIMIT 10 (ou 5) (aqueles que foram mais vezes i.e fizeram mais pedidos) */
 
-SELECT PedidosPessoaCliente.nome, COUNT(PedidosPessoaCliente.pedidoID) AS NumeroDePedidos
-FROM ((Pedido INNER JOIN Cliente ON Pedido.cliente = Cliente.pessoaID) AS PedidoCliente 
-    INNER JOIN Pessoa ON Pessoa.pessoaID = PedidoCliente.pessoaID) AS PedidosPessoaCliente
-GROUP BY PedidosPessoaCliente.PessoaID
-ORDER BY NumeroDePedidos DESC
+SELECT P.nome as "Pessoa", COUNT(Ped.pedidoID) AS "Numero De Pedidos"
+FROM Pedido Ped INNER JOIN Cliente C INNER JOIN Pessoa P
+WHERE Ped.cliente = C.pessoaID
+AND P.pessoaID = C.pessoaID
+GROUP BY P.PessoaID
+ORDER BY "Numero De Pedidos" DESC
 LIMIT 10;  

@@ -2068,18 +2068,18 @@ INSERT INTO Bilhete (sessao , lugar , pedido) values (2 , 151, 2);
 
 INSERT INTO Bilhete (sessao , lugar , pedido) values (4 , 12, 3);
 
-INSERT INTO Bilhete (sessao , lugar , pedido) values (6 , 12, 4);
-INSERT INTO Bilhete (sessao , lugar , pedido) values (10 , 12, 4);
-INSERT INTO Bilhete (sessao , lugar , pedido) values (11 , 12, 4);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (6 , 900, 4);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (10 , 900, 4);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (11 , 900, 4);
 
 INSERT INTO Bilhete (sessao , lugar , pedido) values (12 , 12, 4);
 
-INSERT INTO Bilhete (sessao , lugar , pedido) values (13 , 12, 5);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (13 , 1050, 5);
 
 INSERT INTO Bilhete (sessao , lugar , pedido) values (14 , 12, 6);
 INSERT INTO Bilhete (sessao , lugar , pedido) values (14 , 16, 2);
 
-INSERT INTO Bilhete (sessao , lugar , pedido) values (15 , 12, 7);
+INSERT INTO Bilhete (sessao , lugar , pedido) values (15 , 1050, 7);
 
 INSERT INTO Bilhete (sessao , lugar , pedido) values (16 , 12, 8);
 
