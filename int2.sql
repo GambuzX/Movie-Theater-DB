@@ -11,7 +11,7 @@ SELECT filmeID, IFNULL(AVG(classificacao), "-") as average
 FROM Filme LEFT JOIN Critica ON Filme.filmeID=Critica.filme
 GROUP BY filmeID;
 
-SELECT nome as 'Filme', COUNT(filmeID) as 'N Sessoes'
+SELECT nome as 'Filmes', COUNT(filmeID) as 'N Sessoes'
 FROM (SELECT S.filme as filmeID
       FROM Sessao S
       WHERE date(S.horaInicio)='2019-05-24' 

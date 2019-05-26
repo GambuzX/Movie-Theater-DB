@@ -15,3 +15,4 @@ FROM (SELECT nome, IFNULL(AVG(classificacao), "-") as average, COUNT(criticaID) 
     (SELECT nome, COUNT(DISTINCT sessaoID) as sessionCount, COUNT(bilheteID) as ticketCount
         FROM (Filme LEFT JOIN Sessao ON Filme.filmeID=Sessao.filme) LEFT JOIN Bilhete ON Sessao.sessaoID=Bilhete.sessao
         GROUP BY nome)
+ORDER BY average DESC, nome ASC;

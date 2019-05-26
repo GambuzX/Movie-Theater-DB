@@ -33,7 +33,7 @@ SELECT *
 FROM (SELECT nomeCinema as "Cinema", nomeCat as "Favorite"
         FROM CategoriasPorCinema
         GROUP BY nomeCinema
-        HAVING MAX(nBilhetes))
+        HAVING MAX(nBilhetes) OR nBilhetes=0)
     NATURAL JOIN
     (SELECT nomeCinema as "Cinema", nomeCat as "Worst"
         FROM CategoriasPorCinema

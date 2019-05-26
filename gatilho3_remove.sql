@@ -1,3 +1,3 @@
 PRAGMA foreign_keys = ON;
 
-DROP TRIGGER DefinePrecoEfetivo;
+DROP TRIGGER VerificaPrecoEfetivo;

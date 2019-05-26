@@ -32,5 +32,5 @@ SELECT nome as "Filme", (SELECT IFNULL(SUM(val), 0)
                                                             FROM FilmePorPedido FPP JOIN Filme
                                                             ON FPP.filmeID=F.filmeID))) as "Rendimento Total"
 FROM Filme F
-ORDER BY "Rendimento Total" DESC
+ORDER BY "Rendimento Total" DESC, nome ASC
 LIMIT 10;
