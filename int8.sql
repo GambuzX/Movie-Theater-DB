@@ -15,7 +15,7 @@ Select Categoria.nome as cat_nome, Produto.nome as prod_nome , Count(Produto.nom
   AND FilmeTemCategoria.categoria = Categoria.categoriaID Group By Categoria.nome , Produto.nome Order By Categoria.nome,count desc;
 
 
-Select * from ProdutosPorCategoria;
+--Select * from ProdutosPorCategoria;
 
 Select * from
 (Select  cat_nome as "Categoria", prod_nome as "Best seller" , MAX(count) as "1º number"
