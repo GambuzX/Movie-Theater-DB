@@ -7,8 +7,6 @@ DROP VIEW IF EXISTS ContagemLugaresSalaCinema;
 /*Selecionar lugares preferidos por cada sala por cada cinema*/
 /*Lugares com mais bilhetes comprados */
 
-/*Limit OFFSET || */
-
 CREATE VIEW ContagemLugaresSalaCinema as
 SELECT nomeCinema, numeroSala, lugarSala, COUNT(lugarSala) as contagemLugares
 FROM (SELECT C.nome as nomeCinema, S.numero as numeroSala, (L.fila || '-' || L.numero) as lugarSala
