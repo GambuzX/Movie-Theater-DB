@@ -3,16 +3,19 @@ PRAGMA foreign_keys = ON;
 .mode columns
 .nullvalue NULL
 
+INSERT INTO Pessoa (pessoaID, nome,NIF,telefone,dataNascimento , morada , codigoPostal) values (99, 'Cliente normal' , 215361924 , 9322024419 , '1970-03-08' , 'Rua Indefinida' , '4420-732');
 INSERT INTO Pessoa (pessoaID, nome,NIF,telefone,dataNascimento , morada , codigoPostal) values (100, 'Idoso' , 259561924 , 9322024419 , '1970-03-08' , 'Rua Indefinida' , '4420-732');
 INSERT INTO Pessoa (pessoaID, nome,NIF,telefone,dataNascimento , morada , codigoPostal) values (101, 'Estudante' , 254011924 , 9322024419 , '1970-03-08' , 'Rua Indefinida' , '4420-732');
 INSERT INTO Pessoa (pessoaID, nome,NIF,telefone,dataNascimento , morada , codigoPostal) values (102, 'Crianca' , 291001924 , 9322024419 , '1970-03-08' , 'Rua Indefinida' , '4420-732');
 
+INSERT INTO Cliente (pessoaID) values (99);
 INSERT INTO Cliente (pessoaID) values (100);
 INSERT INTO Cliente (pessoaID) values (101);
 INSERT INTO Cliente (pessoaID) values (102);
 
 SELECT nome as Pessoa, desconto as "Desconto antes" 
-FROM Cliente C NATURAL JOIN Pessoa P 
+FROM Cliente C NATURAL JOIN Pessoa P
+WHERE pessoaID=99 OR pessoaID=100 OR pessoaID=101 OR pessoaID=102
 UNION ALL 
 SELECT " ", " ";
 
@@ -23,5 +26,6 @@ INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values
 
 SELECT nome as Pessoa, desconto as "Desconto depois" 
 FROM Cliente C NATURAL JOIN Pessoa P 
+WHERE pessoaID=99 OR pessoaID=100 OR pessoaID=101 OR pessoaID=102
 UNION ALL 
 SELECT " ", " ";

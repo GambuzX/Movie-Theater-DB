@@ -22,12 +22,14 @@ INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , fun
 
 SELECT precoOriginal as "Preco Original", desconto as "Desconto", precoEfetivo as "Preco Efetivo Antes" 
 FROM Pedido P INNER JOIN Cliente C ON P.cliente=C.pessoaID
+WHERE pessoaID=400 OR pessoaID=401 OR pessoaID=402 OR pessoaID=403
 UNION ALL
 SELECT " ", " ", " ";
 
 UPDATE Pedido SET precoOriginal=precoOriginal+10;
 
-SELECT precoOriginal as "Preco Original", desconto as "Desconto", precoEfetivo as "Preco Efetivo Depois"
+SELECT precoOriginal as "Preco Original + 10", desconto as "Desconto", precoEfetivo as "Preco Efetivo Depois"
 FROM Pedido P INNER JOIN Cliente C ON P.cliente=C.pessoaID
+WHERE pessoaID=400 OR pessoaID=401 OR pessoaID=402 OR pessoaID=403
 UNION ALL
 SELECT " ", " ", " ";
