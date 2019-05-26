@@ -1,4 +1,4 @@
 .read criar.sql
 .read povoar.sql
 
-.read int8.sql
+.read int9.sql

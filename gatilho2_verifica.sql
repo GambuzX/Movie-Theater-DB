@@ -19,9 +19,9 @@ WHERE pessoaID=99 OR pessoaID=100 OR pessoaID=101 OR pessoaID=102
 UNION ALL 
 SELECT " ", " ";
 
-INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (100 , 'generico1@mail.com' , 2 , '2020-04-09' , 3);
-INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (101 , 'generico2@mail.com' , 3 , '2019-11-05' , 5);
-INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (102 , 'generico3@mail.com' , 4 , '2020-09-17' , 2);
+INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (100 , 'generico1@mail.com' , 123 , '2020-04-09' , 3);
+INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (101 , 'generico2@mail.com' , 432 , '2019-11-05' , 5);
+INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (102 , 'generico3@mail.com' , 5234 , '2020-09-17' , 2);
 
 
 SELECT nome as Pessoa, desconto as "Desconto depois" 

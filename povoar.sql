@@ -2016,18 +2016,21 @@ INSERT INTO Adesao (tipo) values ('Jovem'),('Criança'),('Idoso'),('Normal'),('E
 
 
 INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (2 , 'generico@mail.com' , 1 , '2020-09-12' , 2);
+INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (3 , 'generico@mail.com' , 2 , '2020-09-12' , 1);
+INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (5 , 'generico@mail.com' , 3 , '2020-09-12' , 5);
+INSERT INTO Membro (clienteID , email,numeroCartao,validadeAdesao,adesao) values (6 , 'generico@mail.com' , 4 , '2020-09-12' , 3);
 
 
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (10, 8, '2019-04-25T10:00', 1 , 1 , 2);
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (5, 5, '2019-04-25T10:30', 2 , 1 , 3);
-INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (17, 17, '2019-04-29T14:30', 1 , 4 , 3);
+INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (17, 12, '2019-04-29T14:30', 1 , 4 , 3);
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (12, 12, '2019-01-17T17:30', 1 , 4 , 2);
-INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 15, '2019-04-23T16:36', 1 , 4 , 5);
-INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (10, 10, '2019-04-25T16:35', 1 , 4 , 5);
-INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 15, '2019-04-26T16:36', 1 , 4 , 5);
-INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 15, '2019-04-27T16:36', 1 , 4 , 5);
+INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 12, '2019-04-23T16:36', 1 , 4 , 5);
+INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (10, 8, '2019-04-25T16:35', 1 , 4 , 5);
+INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 12, '2019-04-26T16:36', 1 , 4 , 5);
+INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 10, '2019-04-27T16:36', 1 , 4 , 5);
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 15, '2019-04-28T16:36', 1 , 4 , 5);
-INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 15, '2019-04-23T16:46', 1 , 4 , 6);
+INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 12, '2019-04-23T16:46', 1 , 4 , 6);
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 15, '2019-04-23T16:56', 1 , 4 , 7);
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 15, '2019-04-23T22:36', 1 , 4 , 8);
 INSERT INTO Pedido (precoOriginal, precoEfetivo, dataPagamento, postoVenda , funcionario , cliente) values (15, 15, '2019-04-30T16:36', 1 , 4 , 9);
