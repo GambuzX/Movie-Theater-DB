@@ -1,7 +1,7 @@
 # Movie Theater Database :movie_camera:
 Database for a fictional Movie Theater chain.
 
-#### Final grade: ??
+#### Final grade: 18.4
 
 ### Description
 This repository contains the SQL commands used to create, populate and interrogate a Movie Theater chain Database.
